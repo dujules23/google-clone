@@ -8,7 +8,10 @@ export default function CountryLookup() {
   useEffect(() => {
     fetch(`http://ip-api.com/json/${process.env.NEXT_PUBLIC_IP_API_KEY}`)
       .then((res) => res.json())
-      .then((data) => setCountry(data.country))
+      .then((data) => {
+        console.log(data.country)
+        setCountry(data.country)
+      })
   },[])
   return (
     <div>{country}</div>
