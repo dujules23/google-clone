@@ -6,10 +6,9 @@ export default function CountryLookup() {
   const [country, setCountry] = useState("United States")
 
   useEffect(() => {
-    fetch(`https://ip-api.com/json/${process.env.NEXT_PUBLIC_IP_API_KEY}`)
+    fetch(`https://ipinfo.io/${process.env.NEXT_PUBLIC_IP_API_KEY}?token=${process.env.NEXT_PUBLIC_API_TOKEN}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.country)
         setCountry(data.country)
       })
   },[])
